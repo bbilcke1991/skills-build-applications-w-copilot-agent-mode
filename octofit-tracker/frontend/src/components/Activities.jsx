@@ -6,6 +6,7 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   day: 'numeric',
   year: 'numeric',
 })
+const endpointPath = '/api/activities/'
 
 function Activities() {
   const [activities, setActivities] = useState([])
@@ -15,7 +16,7 @@ function Activities() {
   useEffect(() => {
     let isMounted = true
 
-    fetchCollection('activities')
+    fetchCollection(endpointPath)
       .then((items) => {
         if (isMounted) {
           setActivities(items)

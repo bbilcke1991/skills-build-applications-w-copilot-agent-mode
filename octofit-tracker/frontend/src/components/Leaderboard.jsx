@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const endpointPath = '/api/leaderboard/'
+
 function Leaderboard() {
   const [entries, setEntries] = useState([])
   const [error, setError] = useState('')
@@ -9,7 +11,7 @@ function Leaderboard() {
   useEffect(() => {
     let isMounted = true
 
-    fetchCollection('leaderboard')
+    fetchCollection(endpointPath)
       .then((items) => {
         if (isMounted) {
           setEntries(items)

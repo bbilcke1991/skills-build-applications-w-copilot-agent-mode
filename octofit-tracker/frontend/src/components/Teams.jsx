@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const endpointPath = '/api/teams/'
+
 function Teams() {
   const [teams, setTeams] = useState([])
   const [error, setError] = useState('')
@@ -9,7 +11,7 @@ function Teams() {
   useEffect(() => {
     let isMounted = true
 
-    fetchCollection('teams')
+    fetchCollection(endpointPath)
       .then((items) => {
         if (isMounted) {
           setTeams(items)
